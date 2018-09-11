@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.gft.wishpinsdksample"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+    implementation 'android.arch.navigation:navigation-fragment:1.0.0-alpha05'
+    implementation 'android.arch.navigation:navigation-ui:1.0.0-alpha05'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+
+    // ******** dependencies for Gemalto WishPin *********************/
+    implementation(name: 'cardcompanionsdk-release', ext: 'aar')
+    implementation 'com.google.code.gson:gson:2.3'
+    implementation 'commons-codec:commons-codec:1.10'
+    implementation 'org.apache.commons:commons-lang3:3.4'
+    // ******** end dependencies for Gemalto WishPin *********************/
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+
+    implementation "android.arch.work:work-runtime:1.0.0-alpha08"
+}
